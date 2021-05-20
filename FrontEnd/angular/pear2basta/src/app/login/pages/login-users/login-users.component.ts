@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './login-users.component.html'
 })
 export class LoginUsersComponent implements OnInit {
+  // Falta hacer el mensajes de errrores
 
   @ViewChild('inputEmail') inputEmail!:ElementRef;
   @ViewChild('inputPass') inputPass !: ElementRef;
@@ -34,25 +35,20 @@ export class LoginUsersComponent implements OnInit {
       (
         this.inputEmail.nativeElement.value,
         this.inputPass.nativeElement.value
-      ).subscribe(user =>{
-        this.usuario = user;
-        // guardamos en cookie
-        this.cookieService.set(
-          'ganadas',`${this.usuario.ganadas}`);
-        this.cookieService.set(
-          'perdidas',`${this.usuario.perdidas}`);
-        this.cookieService.set(
-          'empatadas',`${this.usuario.empatadas}`);
-        this.cookieService.set('idUser',this.usuario._id||"");
-        this.cookieService.set('nombre',this.usuario.nombre);
-        this.cookieService.set('apeP',this.usuario.apeP);
-        this.cookieService.set('apeM',this.usuario.apeM);
-        this.cookieService.set(
-          'nickName',this.usuario.nickName);
-        this.cookieService.set('email',this.usuario.email);
-        this.cookieService.set('pass',this.usuario.pass);
-        
-        this.route.navigate(['/dashboard']);
+      ).
+      subscribe(user =>
+        {
+          this.usuario = user;
+          if(this.usuario._id != null)
+          {
+            this.cookieService
+            .set('idUser',this.usuario._id||"");
+            
+            this.route.navigate(['/dashboard']);
+          }else
+          {
+            console.log('Error en el login');
+          }
       },(error=>{
           console.error(error);
           this.isOk = false;

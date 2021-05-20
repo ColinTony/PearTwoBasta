@@ -11,14 +11,17 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenuBarComponent implements OnInit {
   // variables
-  public cookieExist: boolean = this.coockieService.check('usuario');
+  public cookieExist: boolean = this.coockieService.check('idUser');
   public menuItems:MenuItem[];
 
   // usaremos Cookie-Service como metodo rapido de validacion
   // de inicio de sesion. Este proyecto debe quedar rapido
   // la idea es que funicone con Express Session 
   // por ahora las sesiones las manejo como cookies
-  constructor(private coockieService:CookieService,private router:Router) 
+  constructor(
+    private coockieService:CookieService,
+    private router:Router
+    ) 
   {    
     this.menuItems = [];
   }
@@ -70,7 +73,8 @@ export class MenuBarComponent implements OnInit {
             },
             {
               label:"Cerrar Sesion",
-              icon:"pi pi-sign-out"
+              icon:"pi pi-sign-out",
+              command:((click:Event) => this.cerrar())
             }
           ]
         },{
@@ -92,5 +96,9 @@ export class MenuBarComponent implements OnInit {
       ];
     }
   }
-
+  cerrar()
+  {
+    this.coockieService.deleteAll();
+    this.router.navigate(['/login']);
+  }
 }

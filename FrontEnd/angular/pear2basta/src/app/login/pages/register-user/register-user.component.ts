@@ -42,6 +42,7 @@ export class RegisterUserComponent implements OnInit {
   {
     if(this.checkInputs())
     {
+      console.log(this.inputPass.nativeElement.value);
       let newUsuario:Usuario = 
       {
         nombre:this.inputNombre.nativeElement.value,
