@@ -1,0 +1,73 @@
+<app-menu-bar></app-menu-bar>
+<div class="p-grid">
+    <div class="p-col">    
+        <h1 class="p-text-center">Peer Two Basta</h1>
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col-3">
+        <p-divider layout="vertical"></p-divider>
+    </div>
+    <div class="p-col-6 p-ai-stretch vertical-container p-shadow-21">
+        <div class="p-col">
+            <div class="card">
+                <h3 class="p-text-center">
+                    Iniciar Sesion
+                </h3>
+                <div class="p-fluid">
+                    <div class="p-field">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <i class="pi pi-envelope"></i>
+                            </span>
+                            <input type="text" 
+                            name = "email"
+                            #inputEmail
+                            pInputText placeholder="Email">         
+                        </div>
+                    </div>
+                    <div class="p-field">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <i class="pi pi-lock"></i>
+                            </span>
+                            <input type="password" 
+                            name = "pass"
+                            #inputPass
+                            pInputText placeholder="Contraseña">         
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        <p-divider></p-divider>
+        <div class="p-col">
+            <div class="p-grid">
+                <div class="p-col-1">
+                </div>
+                <div class="p-col-5">
+                    <button pButton 
+                    pRipple 
+                    type="button" 
+                    label="Registrarse"
+                    (click)="registroRedirect()" 
+                    class="p-button-rounded p-button-warning"></button>
+                </div>
+                <div class="p-col-5 p-text-right">
+                    <button pButton 
+                    pRipple 
+                    type="button" 
+                    (click)="login()"
+                    label="Iniciar sesion" 
+                    class="p-button-rounded p-button-success"></button>
+                </div>
+                <div class="p-col-1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-3">
+        <p-divider layout="vertical"></p-divider>
+    </div>
+</div>
