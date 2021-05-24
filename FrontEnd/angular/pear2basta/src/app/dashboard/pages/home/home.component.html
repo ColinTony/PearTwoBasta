@@ -1,2 +1,97 @@
 <app-menu-bar></app-menu-bar>
-<p>home works!</p>
+<div class="p-grid">
+    <div class="p-col-12">
+        <h1 class="p-text-center text-title3D"> 
+            PeerTwoBasta 
+        </h1>
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col-1">
+
+    </div>
+
+    <div class="p-col-5 p-ai-stretch vertical-container p-shadow-15">
+        <div class="p-col">
+            <h2 class="p-text-center text2D">
+                Información de jugador
+            </h2>
+        </div>
+        <div class="p-col p-text-center">
+            <i class=" pi pi-user" style="font-size: 5rem;"></i>
+        </div>
+        <div class="p-col">
+            <h3 class="p-text-center textHandWrite"
+                style="font-size: 25px;">
+                {{ usuario.nickName }}</h3>
+        </div>
+        <div class="p-col">
+            <h3 class="p-text-center textHandWrite">
+                {{'Partidas Jugadas: ' +totalPartidas}}
+            </h3>
+        </div>
+        <div class="p-col">
+            <p-chart type="pie" [data]="infoGames"></p-chart>
+        </div>
+        <div class="p-col">
+            <div class="p-grid">
+                <div class="p-col-2"></div>
+                <div class="p-col-8 p-text-center">
+                    <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Editar Informacion" class="p-button-rounded p-button-info"
+                    (click)="editarInfo()"
+                    ></button>
+                </div>
+                <div class="p-col-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <p-divider layout="vertical">
+    </p-divider>
+    
+    <div class="p-col-5 p-ai-stretch vertical-container p-shadow-15">
+        <div class="p-col">
+            <h2 class="p-text-center text2D"
+                style="font-size: 30px;">
+                JUGAR
+            </h2>
+            <p-divider></p-divider>
+        
+        </div>
+        <div class="pl-col">
+            <h3><p class="p-text-justify text2D">
+                Entra y crea tu propia sala para jugar con tus amigos. Rolales el id de la sala para que que juegues con ellos.
+            </p></h3>
+        </div>
+        <div class="p-col p-text-center">
+            <button pButton pRipple type="button" label="Crear Sala" class="p-button-lg p-button-rounded p-button-primary"
+            (click)="crearSala();"
+            ></button>
+        </div>
+        <p-divider></p-divider>
+
+        <div class="pl-col p-text-center">
+            <img src="../../../../assets/images/abcdario.gif" width="180px" height="180px">
+        </div>
+        
+        <div class="pl-col">
+            <h3><p class="p-text-center text2D">
+                ¿Ya tienes el id de tu sala? Presiona el botón
+            </p></h3>
+        </div>
+        
+        <div class="p-col p-text-center">
+            <button pButton pRipple type="button" label="Unirse a Sala" class="p-button-lg p-button-rounded p-button-secondary"
+            (click)="unirseSala()"
+            ></button>
+        </div>
+    </div>
+    
+    <div class="p-col-1">
+        
+    </div>
+</div>

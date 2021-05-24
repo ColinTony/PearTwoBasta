@@ -4,6 +4,7 @@ import { ConectionDBService } from '../../../services/conection-db.service';
 
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { UtilCookiesService } from '../../../services/util-cookies.service';
 
 @Component({
   selector: 'app-login-users',
@@ -21,10 +22,12 @@ export class LoginUsersComponent implements OnInit {
   constructor(
     private dbCon : ConectionDBService,
     private cookieService:CookieService,
-    private route:Router
+    private route:Router,
+    private utilCookie:UtilCookiesService
     ) { }
 
   ngOnInit(): void {
+    this.utilCookie.redirectIsCookie();
   }
 
   login()

@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+html,body {
+    margin: 10px;
+    background-color: var(--surface-b);
+    font-family: var(--font-family);
+}
+
+@font-face {
+    font-family: "handWrite";
+    src: url(assets/fonts/!SketchyTimesBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: "3Dumb";
+    src: url(assets/fonts/3Dumb.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "2Dumb";
+    src: url(assets/fonts/2Dumb.ttf) format('truetype');
+}
+
+.text3D{
+    font-family: '3Dumb';
+}
+
+.text2D{
+    font-family: '2Dumb';
+}
+
+.textHandWrite{
+    font-family: 'handWrite';
+}
+
+.text-title3D{
+    font-family: '3Dumb';
+    font-size: 65px;
+}
+.text-title2D{
+    font-family: '2Dumb';
+    font-size: 50px;
+}

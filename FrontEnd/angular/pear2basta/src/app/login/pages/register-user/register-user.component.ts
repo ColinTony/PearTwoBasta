@@ -4,6 +4,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ConectionDBService } from '../../../services/conection-db.service';
 import { Usuario } from '../../../interface/usuario.interface';
 import {Message} from 'primeng//api';
+import { UtilCookiesService } from '../../../services/util-cookies.service';
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
@@ -24,13 +25,15 @@ export class RegisterUserComponent implements OnInit {
 
   constructor(
     private dbCrudService:ConectionDBService,
-    private route:Router
+    private route:Router,
+    private utilCookie:UtilCookiesService
     ) 
     {
 
     }
 
   ngOnInit(): void {
+    this.utilCookie.redirectIsCookie();
   }
 
   cancelar():void
@@ -51,9 +54,9 @@ export class RegisterUserComponent implements OnInit {
         nickName:this.inputNickName.nativeElement.value,
         email:this.inputEmail.nativeElement.value,
         pass:this.inputPass.nativeElement.value,
-        ganadas:0,
-        perdidas:0,
-        empatadas:0
+        ganadas:5,
+        perdidas:10,
+        empatadas:5
       };
       this.dbCrudService.registrar(newUsuario);
       this.route.navigate(['/login']);

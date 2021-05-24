@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const Usuario = require('../models/usuario');
-const usuario = require('../models/usuario');
 
 // seguridad
 const saltRound = 10;
@@ -27,6 +26,17 @@ router.get('/login',async(req,res)=>
         res.send(user);
     else
         res.send({});
+});
+
+router.get('/user',async(req,res)=>{
+    id = req.query.idUser;
+    console.log(id);
+    const usuario = await Usuario.findById(id);
+    
+    if(usuario != null)
+        res.status(200).send(usuario);
+    else
+        res.send(null);
 });
 
 

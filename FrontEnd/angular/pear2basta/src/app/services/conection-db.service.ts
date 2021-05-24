@@ -46,6 +46,18 @@ export class ConectionDBService {
 
     return this.http.get<Usuario>(url,{params});
   }
+  /*
+    Obtener la informacion con el ID de mongo
+  */
+  getInfo(id:string):Observable<Usuario>
+  {
+    const params = new HttpParams()
+    .set('idUser',id);
+
+    const url = `${this._urlBase}/user`;
+    return this.http.get<Usuario>(url,{params});
+
+  }
   // PUTS
 
   // DELETES

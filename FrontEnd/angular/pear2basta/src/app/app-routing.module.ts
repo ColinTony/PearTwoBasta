@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginUsersComponent } from './login/pages/login-users/login-users.component';
 import { RegisterUserComponent } from './login/pages/register-user/register-user.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
+import { EditPerfilComponent } from './dashboard/pages/edit-perfil/edit-perfil.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path:'dashboard',
     component:HomeComponent
+  },
+  {
+    path:'dashboard/edit',
+    component:EditPerfilComponent
   }
 
 

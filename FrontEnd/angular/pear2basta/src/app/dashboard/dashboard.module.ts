@@ -4,14 +4,18 @@ import { HomeComponent } from './pages/home/home.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { SharedModule } from '../shared/shared.module';
 
+import { EditPerfilComponent } from './pages/edit-perfil/edit-perfil.component';
+
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    EditPerfilComponent
   ],
   exports:[
-    HomeComponent
+    HomeComponent,
+    EditPerfilComponent
   ],
   imports: [
 

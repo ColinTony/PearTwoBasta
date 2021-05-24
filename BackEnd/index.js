@@ -13,7 +13,6 @@ const io = socket(server);
 io.use(p2pServer);
 const PORT = process.env.PORT || 5000;
 const indexRoutes = require('./routes/routes');
-const bodyParser = require('body-parser');
 
 // config conecction to db
 mongoose.connect('mongodb://localhost/basta')

@@ -16,7 +16,7 @@
             <div class="card">
                 <h3 class="p-text-center text2D"
                     style="font-size: 30px;">
-                    Registrarse
+                    Editar Usuario
                 </h3>
                 <p-divider align="center">
                     <span class="p-tag">Datos Personales</span>
@@ -29,6 +29,7 @@
                             </span>
                             <input type="text"
                             required
+                            value={{usuario.nombre}}
                             #inputNombre
                             name = "nombre"
                             pInputText placeholder="Nombre">         
@@ -42,6 +43,7 @@
                             <input type="text"
                             name = "apeP"
                             required
+                            value={{usuario.apeP}}
                             #inputApeP
                             pInputText 
                             placeholder="Apellido Paterno">         
@@ -55,6 +57,7 @@
                             <input type="text"
                             required
                             #inputApeM
+                            value="{{usuario.apeM}}"
                             name = "apeM"
                             pInputText placeholder="Apellido Materno">         
                         </div>
@@ -70,6 +73,7 @@
                             <input type="text"
                             required
                             #inputNickName
+                            value={{usuario.nickName}}
                             name = "nickName"
                             pInputText placeholder="NickName">         
                         </div>
@@ -82,6 +86,7 @@
                             <input type="email"
                             required
                             #inputEmail
+                            value={{usuario.email}}
                             name = "email"
                             pInputText placeholder="Email@email">         
                         </div>
@@ -95,10 +100,9 @@
                             required
                             #inputPass
                             name="pass" 
-                            pInputText placeholder="Contraseña">         
+                            pInputText placeholder="Nueva Contraseña">         
                         </div>
                     </div>
-    
                 </div>
             </div>
         </div>
@@ -111,16 +115,16 @@
                     <button pButton 
                     pRipple 
                     type="submit" 
-                    label="Registrarse"
-                    (click)="registrar()" 
-                    class="p-button-rounded p-button-warning"></button>
+                    label="Guardar Cambios"
+                    (click)="updateUsuario()" 
+                    class="p-button-rounded p-button-info"></button>
                 </div>
                 <div class="p-col-5 p-text-right">
                     <button pButton 
                     pRipple 
                     type="button" 
-                    label="Cancelar" 
-                    (click)="cancelar()"
+                    label="Eliminar usuario" 
+                    (click)="eliminar()"
                     class="p-button-rounded p-button-danger"></button>
                 </div>
                 <div class="p-col-1">
