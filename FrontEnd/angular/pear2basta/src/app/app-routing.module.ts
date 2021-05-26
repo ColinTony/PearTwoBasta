@@ -4,6 +4,8 @@ import { LoginUsersComponent } from './login/pages/login-users/login-users.compo
 import { RegisterUserComponent } from './login/pages/register-user/register-user.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
 import { EditPerfilComponent } from './dashboard/pages/edit-perfil/edit-perfil.component';
+import { GameUnirseComponent } from './game/pages/game-unirse/game-unirse.component';
+import { GameCrearComponent } from './game/pages/game-crear/game-crear.component';
 
 const routes: Routes = [
 
@@ -23,8 +25,19 @@ const routes: Routes = [
   {
     path:'dashboard/edit',
     component:EditPerfilComponent
+  },
+  {
+    path:'game/unirse',
+    component:GameUnirseComponent
+  },
+  {
+    path:'game/crear',
+    component:GameCrearComponent
+  },
+  {
+    path:'**',
+    redirectTo:'login'
   }
-
 
 ];
 

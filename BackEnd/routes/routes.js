@@ -51,6 +51,27 @@ router.post('/registro', async(req,res)=>
     res.send({status:200});
 });
 
+// put
+router.put('/editar',async(req,res)=>{
+    id = req.body._id;
+    if(req.body.pass != undefined 
+        || req.body.pass != " "
+        || req.body.pass != null){
+        req.body.pass = bcrypt.hashSync(req.body.pass,saltRound);
+    }
+    console.log(id);
+    console.log(req.body);
+    await Usuario.updateOne({_id:id},req.body);
+    res.send({});
+});
+
+// delete
+router.delete('/eliminar',async(req,res)=>{
+    id = req.query.idUser;
+    console.log('eliminar'+id);
+    await Usuario.remove({_id:id});
+    res.send({});
+});
 
 
 module.exports = router;

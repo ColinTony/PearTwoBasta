@@ -3,6 +3,7 @@ import { Usuario } from '../../../interface/usuario.interface';
 import { ConectionDBService } from '../../../services/conection-db.service';
 import { CookieService } from 'ngx-cookie-service';
 import { UtilCookiesService } from '../../../services/util-cookies.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-perfil',
@@ -32,7 +33,8 @@ export class EditPerfilComponent implements OnInit {
   constructor(
     private dbService:ConectionDBService,
     private coockieService:CookieService,
-    private utilCookie:UtilCookiesService
+    private utilCookie:UtilCookiesService,
+    private router:Router
     ) { }
 
   ngOnInit(): void {
@@ -44,15 +46,36 @@ export class EditPerfilComponent implements OnInit {
       console.error('Hubo un error al obtener usuario:'+error);
     });
   }
-
   updateUsuario()
   {
+    
+    this.usuario.nombre = this.inputNombre.nativeElement.value;
+    this.usuario.apeP = this.inputApeP.nativeElement.value;
+    this.usuario.apeM = this.inputApeM.nativeElement.value;
+    this.usuario.nickName = this.inputNickName.nativeElement.value;
+    this.usuario.email = this.inputEmail.nativeElement.value;
 
+    if(this.inputPass.nativeElement.value != " " ||
+       this.inputPass.nativeElement.value != '')
+    {
+      this.usuario.pass = this.inputPass.nativeElement.value;
+    }
+
+    if(!this.dbService.updateUser(this.usuario))
+    {
+      this.router.navigate(['/dashboard']);
+    }
+    
   }
-
+  regresar()
+  {
+    this.router.navigate(['/dashboard']);
+  }
   eliminar()
   {
-
+    this.dbService.daleteUser(this.coockieService.get('idUser'));
+    this.coockieService.deleteAll();
+    this.router.navigate(['/login']);
   }
 
 }

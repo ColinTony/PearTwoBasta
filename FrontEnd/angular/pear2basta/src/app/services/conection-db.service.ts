@@ -59,8 +59,35 @@ export class ConectionDBService {
 
   }
   // PUTS
+  updateUser(user:Usuario):boolean
+  {
+    let isOk:boolean = false;
+    let url = `${this._urlBase}/editar`;
+    this.http.put(url,user)
+    .subscribe({
+      next:data=>{
+        isOk = true;
+      },
+      error:error=>{
+        console.error('Error al actualizar datos ' + error);
+      }
+    });
 
+    return isOk;
+  }
   // DELETES
-
+  daleteUser(id:string)
+  {
+    // poner los mensajes de confirmacions
+    let url = `${this._urlBase}/eliminar`;
+    const params = new HttpParams()
+    .set('idUser',id);
+    this.http.delete(url,{params}).subscribe(data=>{
+      console.log(data);
+    },(err)=>
+    {
+      console.error('Error en eliminar '+ err);
+    });
+  }
 
 }

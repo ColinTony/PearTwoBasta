@@ -41,12 +41,12 @@ export class MenuBarComponent implements OnInit {
             {
               label:'Iniciar Sesion',
               icon:'pi pi-sign-in',
-              routerLink:'login'
+              routerLink:'/login'
             },
             {
               label:'Registrase',
               icon:'pi pi-pencil',
-              routerLink:'registro'
+              routerLink:'/registro'
             }
           ]
         }
@@ -61,15 +61,9 @@ export class MenuBarComponent implements OnInit {
           icon:"pi pi-user",
           items:[
             {
-              label:"Mis juegos",
-              icon:"pi pi-info-circle",
-              routerLink:"/dashboard/info"
-              
-            },
-            {
               label:"Editar info",
               icon:"pi pi-user-edit",
-              routerLink:"/dashboard/editar"
+              routerLink:"/dashboard/edit"
             },
             {
               label:"Cerrar Sesion",
@@ -84,12 +78,12 @@ export class MenuBarComponent implements OnInit {
             {
               label:"Unirse a Sala",
               icon:"pi pi-users",
-              routerLink:"/dashboard/unirse"
+              routerLink:"/game/unirse"
             },
             {
               label:"Crear Sala",
               icon:"pi pi-plus",
-              routerLink:"/dashboard/crear"
+              routerLink:"/game/crear"
             }
           ]
         }

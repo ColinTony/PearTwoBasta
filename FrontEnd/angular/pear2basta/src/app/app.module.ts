@@ -8,6 +8,7 @@ import { LoginModule } from './login/login.module';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { GameModule } from './game/game.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     PrimeNgModule,
     LoginModule,
     DashboardModule,
+    GameModule,
     HttpClientModule
   ],
   providers: [CookieService],
